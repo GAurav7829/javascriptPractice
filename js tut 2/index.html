@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Course</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        document.write('This is my javascript<br/>');
+        var a = 50;
+        var b = 60;
+        var sum = a + b;
+        document.write(sum + '<br/>');
+        const alertBox = () => {
+            alert('this is alert box');
+        }
+        const showConfirmBox = () => {
+            let value = confirm('This is confirm box');
+            if (value) {
+                document.write('ok');
+            } else {
+                document.write('cancel');
+            }
+        }
+        const showPromptBox = () => {
+            let value = prompt('message', 'default value');
+            document.write(value);
+        }
+        function house(locn, color) {
+            this.location = locn;
+            this.color = color;
+        }
+        const newHouse = new house('Delhi', 'Red');
+        document.write('<br/>Location: ' + newHouse.location);
+        document.write('<br/>Color: ' + newHouse.color);
+
+        // Date Object
+        const dateFun = () => {
+            let dateObj = new Date();
+            document.write('<br/>Date: ' + dateObj);
+            document.write('<br/>Date: ' + dateObj.getDate());
+            document.write('<br/>Month: ' + dateObj.getMonth());
+            document.write('<br/>Year: ' + dateObj.getFullYear());
+            document.write('<br/>Hour: ' + dateObj.getHours());
+            document.write('<br/>Minute: ' + dateObj.getMinutes());
+            document.write('<br/>Second: ' + dateObj.getSeconds());
+            document.write('<br/>Full Date: ' + dateObj.toLocaleString());
+            document.write('<br/>Full Time: ' + dateObj.toLocaleTimeString());
+            document.write('<br/>Day: ' + dateObj.getDay());
+            dateObj.setDate(1);
+            document.write('<br>Changed Date: ' + dateObj)
+        }
+        //setInterval(dateFun, 1000);
+        //        dateFun();
+
+        //String Object
+        const strFun = () => {
+            let str = 'Hello, how are you?';
+            document.write('<br/>Str: ' + str);
+            document.write('<br/>Str length: ' + str.length);
+            document.write('<br/>Str match: ' + str.match('are'));
+            document.write('<br/>Str replace: ' + str.replace('Hello', 'Hi'));
+            document.write('<br/>Str uppercase: ' + str.toUpperCase());
+            document.write('<br/>Str lowercase: ' + str.toLowerCase());
+            document.write('<br/>Str charAt: ' + str.charAt(7));
+            document.write('<br/>Str typeOf: ' + typeof (str));
+        }
+        //      strFun();
+
+        //Array
+        const arrayFun = () => {
+            let country = new Array();
+            country[0] = 'India';
+            country[1] = 'United State';
+            country[2] = 'Australia';
+            country[3] = 'United Kingdom';
+            for (let i in country) {
+                document.write('<br/>country: ' + country[i]);
+            }
+            // let myName = new Array();
+            // for (let i = 0; i < 4; i++) {
+            //     let name = prompt('Enter Name', '');
+            //     myName[i] = name;
+            // }
+            // for (let i in country) {
+            //     document.write('<br/>name: ' + myName[i]);
+            // }
+            let array1 = new Array('Gaurav', 'Dev', 'Ankush');
+            let array2 = new Array('Monu');
+            let array3 = array1.concat(array2);
+            document.write('<br/>Concat Array: ' + array3);
+            let array4 = array1.join(' ');
+            document.write('<br/>join Array: ' + array4);
+            document.write('<br/>sort Array: ' + array1.sort());
+            document.write('<br/>reverse Array: ' + array1.reverse());
+            array1.push('Umesh');
+            document.write('<br/>push Array: ' + array1);
+            array1.pop();
+            document.write('<br/>pop Array: ' + array1);
+        }
+        //    arrayFun();
+
+        //math
+        const mathFun = () => {
+            document.write('<br/>Math ramdom: ' + Math.random());
+            document.write('<br/>Math round: ' + Math.round(7.4) + ', ' + Math.round(7.6));
+            document.write('<br/>Math floor: ' + Math.floor(7.6));
+            document.write('<br/>Math ceil: ' + Math.ceil(7.6));
+            document.write('<br/>Math max: ' + Math.max(7, 8, 9));
+            document.write('<br/>Math min: ' + Math.min(7, 8, 9));
+            document.write('<br/>Math sqrt: ' + Math.sqrt(4));
+        }
+        // mathFun();
+
+        document.write('<br/>');
+    </script>
+    <button onclick="alertBox()">Alert Box</button>
+    <br />
+    <button onclick="showConfirmBox()">Confirm Box</button>
+    <br />
+    <button onclick="showPromptBox()">Prompt Box</button>
+</body>
+
+</html>

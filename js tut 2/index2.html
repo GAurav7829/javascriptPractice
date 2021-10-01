@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        let myWindow;
+        const windowOpen = () => {
+            myWindow = window.open('http://www.google.com');
+        }
+        const windowClose = () => {
+            myWindow.close();
+        }
+        const currentUrl = () => {
+            document.write(window.location);
+            // window.location.reload();//to reload page
+            // window.location.replace('http://www.google.com'); //to replace the url
+        }
+        const redirectUrl = () => {
+            window.location.href = 'http://www.google.com';
+        }
+        const navigatorFun = () => {
+            let obj = navigator;
+            document.write('<br/>Appname: ' + obj.appName);
+            document.write('<br/>AppVersion: ' + obj.appVersion);
+            document.write('<br/>AppCodeName: ' + obj.appCodeName);
+            document.write('<br/>UserAgent: ' + obj.userAgent);
+            document.write('<br/>CookieEnabled: ' + obj.cookieEnabled);
+            document.write('<br/>Platform: ' + obj.platform);
+            document.write('<br/>Product: ' + obj.product);
+            document.write('<br/>Language: ' + obj.language);
+            document.write('<br/>OnLine: ' + obj.onLine);
+            document.write('<br/>JavaEnabled: ' + obj.javaEnabled());
+        }
+        // navigatorFun();
+
+        let count = 0;
+        let time;
+        const myCount = () => {
+            document.getElementById('counter').value = count;
+            count++;
+            time = setTimeout(myCount, 1000);
+        }
+        const stopCount = () => {
+            clearTimeout(time);
+        }
+
+        let count2 = 5;
+
+        const countDown = () => {
+            document.getElementById('myHeading').innerHTML = count2;
+            count2--;
+            if (count2 < 0) {
+                clearInterval(time2);
+                document.getElementById('myHeading').innerHTML = "<a href='http://www.google.com'>Google</a>";
+            }
+        }
+        var time2 = setInterval(countDown, 1000);
+
+
+
+        document.write('<br/>');
+    </script>
+    <button onclick="windowOpen()">Open Window</button>
+    <button onclick="windowClose()">Close Window</button>
+    <button onclick="currentUrl()">Current Url</button>
+    <button onclick="redirectUrl()">Redirect Url</button>
+    <button onclick="myCount()">Start Count</button>
+    <input type="text" id="counter" />
+    <button onclick="stopCount()">Stop Count</button>
+    <br />
+    <h1 id="myHeading"></h1>
+    <br />
+
+</body>
+
+</html>

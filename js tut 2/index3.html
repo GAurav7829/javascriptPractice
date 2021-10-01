@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onkeypress="keyPress(event)">
+    <script type="text/javascript">
+        const keyPress = (event) => {
+            x = event.which || event.keyCode;
+            document.getElementById('data').innerHTML = x;
+        }
+        const showActivity = (event) => {
+            if (event.button == 0) {
+                alert('you have pressed left mouse btn');
+            } else if (event.button == 1) {
+                alert('you have pressed middle mouse btn');
+            } else if (event.button == 2) {
+                alert('you have pressed right mouse btn');
+            }
+        }
+    </script>
+    <p id="data"></p>
+    <div onmousedown="showActivity(event)">
+        Click on this text on mouse btn
+    </div>
+</body>
+
+</html>
