@@ -14,6 +14,7 @@
             x = event.which || event.keyCode;
             document.getElementById('data').innerHTML = x;
         }
+
         const showActivity = (event) => {
             if (event.button == 0) {
                 alert('you have pressed left mouse btn');
@@ -23,10 +24,79 @@
                 alert('you have pressed right mouse btn');
             }
         }
+
+        const caseCheck = () => {
+            let x = document.getElementById('name').value;
+            document.getElementById('name').value = x.toUpperCase();
+        }
+
+        const copyText = () => {
+            document.getElementById('text2').value = document.getElementById('text1').value;
+        }
+
+        const showError = () => {
+            document.getElementById('imageError').innerHTML = 'Could not load Image';
+        }
+
+        const uppercase = () => {
+            document.getElementById('outputText').value = document.getElementById('inputText').value.toUpperCase();
+        }
+
+        const changeColor = (id) => {
+            document.getElementById(id).style.backgroundColor = 'red';
+        }
+        const undoColor = (id) => {
+            document.getElementById(id).style.backgroundColor = null;
+        }
+
+        const showData = () => {
+            let data = document.getElementById('text5').value;
+            document.getElementById('myHeading').innerHTML = data;
+        }
+
+        const changeCar = () => {
+            document.getElementById('selectedCar').innerHTML = document.getElementById('car').value;
+        }
     </script>
     <p id="data"></p>
     <div onmousedown="showActivity(event)">
         Click on this text on mouse btn
+    </div>
+    <div>
+        Enter name: <input type="text" id="name" onblur="caseCheck()" />
+    </div>
+    <div>
+        <input type="text" id="text1" />
+        <button onclick="copyText()">Copy Text</button>
+        <input type="text" id="text2" />
+    </div>
+    <div>
+        <img src="images/pic.jpg" onerror="showError()" />
+        <p id="imageError"></p>
+    </div>
+    <div>
+        On blur effect:
+        <input type="text" id='inputText' onblur="uppercase()" />
+        <input type="text" id='outputText' />
+    </div>
+    <div>
+        On focus effect:
+        <input type="text" id="text3" onfocus="changeColor(id)" onblur="undoColor(id)" />
+        <input type="text" id="text4" onfocus="changeColor(id)" onblur="undoColor(id)" />
+    </div>
+    <div>
+        On Key Down:
+        <input type="text" id="text5" onkeydown="showData()" />
+        <h1 id="myHeading"></h1>
+    </div>
+    <div>
+        On Change:
+        <select id='car' onchange="changeCar()">
+            <option value="">Select car</option>
+            <option value="mercedes">mercedes</option>
+            <option value="audi">audi</option>
+        </select>
+        <p>You have selected <span id='selectedCar'></span></p>
     </div>
 </body>
 
