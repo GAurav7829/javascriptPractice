@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 
-<body onkeypress="keyPress(event)">
+<body onload="onloadAlert()" onunload="alert('Window Closed')">
     <script type="text/javascript">
         const keyPress = (event) => {
             x = event.which || event.keyCode;
@@ -57,46 +57,97 @@
         const changeCar = () => {
             document.getElementById('selectedCar').innerHTML = document.getElementById('car').value;
         }
+
+        const showAlert = (x) => {
+            alert('key is pressed in field: ' + x.id);
+        }
+
+        const keyupUppercase = () => {
+            let element = document.getElementById('text8');
+            element.value = element.value.toUpperCase();
+        }
+
+        const onloadAlert = () => {
+            alert('page is loaded');
+        }
+
+        const showActivityOnMouseDown = (x, color) => {
+            x.style.backgroundColor = color;
+        }
+
+        const showData1 = (x) => {
+            alert('you have submitted ' + x.text9.value);
+        }
+
+        const changeColor2 = (x) => {
+            x.style.backgroundColor = 'red';
+            x.innerHTML = 'Color changed to red';
+        }
     </script>
-    <p id="data"></p>
-    <div onmousedown="showActivity(event)">
-        Click on this text on mouse btn
-    </div>
-    <div>
-        Enter name: <input type="text" id="name" onblur="caseCheck()" />
-    </div>
-    <div>
-        <input type="text" id="text1" />
-        <button onclick="copyText()">Copy Text</button>
-        <input type="text" id="text2" />
-    </div>
-    <div>
-        <img src="images/pic.jpg" onerror="showError()" />
-        <p id="imageError"></p>
-    </div>
-    <div>
-        On blur effect:
-        <input type="text" id='inputText' onblur="uppercase()" />
-        <input type="text" id='outputText' />
-    </div>
-    <div>
-        On focus effect:
-        <input type="text" id="text3" onfocus="changeColor(id)" onblur="undoColor(id)" />
-        <input type="text" id="text4" onfocus="changeColor(id)" onblur="undoColor(id)" />
-    </div>
-    <div>
-        On Key Down:
-        <input type="text" id="text5" onkeydown="showData()" />
-        <h1 id="myHeading"></h1>
-    </div>
-    <div>
-        On Change:
-        <select id='car' onchange="changeCar()">
-            <option value="">Select car</option>
-            <option value="mercedes">mercedes</option>
-            <option value="audi">audi</option>
-        </select>
-        <p>You have selected <span id='selectedCar'></span></p>
+    <div onkeypress="keyPress(event)">
+        <p id="data"></p>
+        <div onmousedown="showActivity(event)">
+            Click on this text on mouse btn
+        </div>
+        <div>
+            Enter name: <input type="text" id="name" onblur="caseCheck()" />
+        </div>
+        <div>
+            <input type="text" id="text1" />
+            <button onclick="copyText()">Copy Text</button>
+            <input type="text" id="text2" />
+        </div>
+        <div>
+            <img src="images/pic.jpg" onerror="showError()" />
+            <p id="imageError"></p>
+        </div>
+        <div>
+            On blur effect:
+            <input type="text" id='inputText' onblur="uppercase()" />
+            <input type="text" id='outputText' />
+        </div>
+        <div>
+            On focus effect:
+            <input type="text" id="text3" onfocus="changeColor(id)" onblur="undoColor(id)" />
+            <input type="text" id="text4" onfocus="changeColor(id)" onblur="undoColor(id)" />
+        </div>
+        <div>
+            On Key Down:
+            <input type="text" id="text5" onkeydown="showData()" />
+            <h1 id="myHeading"></h1>
+        </div>
+        <div>
+            On Change:
+            <select id='car' onchange="changeCar()">
+                <option value="">Select car</option>
+                <option value="mercedes">mercedes</option>
+                <option value="audi">audi</option>
+            </select>
+            <p>You have selected <span id='selectedCar'></span></p>
+        </div>
+        <div>
+            On key press:
+            <input type="text" id="text6" onkeypress="showAlert(this)" />
+            <input type="text" id="text7" onkeypress="showAlert(this)" />
+        </div>
+        <div>
+            On key up: <input type="text" id="text8" onkeyup="keyupUppercase()" />
+        </div>
+        <div id="myDiv" onmousedown="showActivityOnMouseDown(this,'red')">
+            <h1>click this area</h1>
+        </div>
+        <div id="myDiv2" onmousedown="showActivityOnMouseDown(this,'green')">
+            <h1>click this area</h1>
+        </div>
+        <div>
+            <form id="myForm" onsubmit="showData1(this)">
+                Enter Name: <input type="text" id="text9" required /><br />
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div id="myDiv3" style="width: 200px; height: 200px; background-color: aqua;" ondblclick="changeColor2(this)">
+            Double click on this div
+        </div>
     </div>
 </body>
 
