@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <p id="test">Hi, there</p>
+    <input type="text" id="txtFn" placeholder="Enter Name" />
+    <button onclick="showName()">Print Name in Console</button>
     <script type="text/javascript">
         'use strict';
         let firstName = 'Gaurav';
@@ -19,6 +22,60 @@
 
         const sum = (a, b) => a + b;
         console.log(sum(1, 2));
+
+        const cars = ['Toyota', 'BMW'];
+        console.log(cars);
+        cars.push('Mercedes');//added at last
+        console.log(cars);
+        cars.unshift('Tesla');//added at first
+        console.log(cars);
+        const popValue = cars.pop();//remove last
+        console.log(cars);
+        console.log('popValue', popValue);
+        console.log('indexOf Tesla', cars.indexOf('Tesla'));
+
+        const person1 = {
+            firstName: 'Narender',
+            lastName: 'Singh',
+            job: 'Software Engineer',
+            printFullName: function () {
+                return `${this.firstName} ${this.lastName}`
+            }
+        }
+        console.log(person1.printFullName());
+
+        document.getElementById('test').innerHTML = 'Hello World';
+
+        const showName = () => {
+            const value = document.getElementById('txtFn').value;
+            console.log(value);
+        }
+
+        //array desturcturing
+        const arr = [1, 2, 3, 4];
+        const [a, b, c, d] = arr;
+        console.log(a, b, c, d);
+
+        const gym = {
+            name: 'Gold Gym',
+            location: ['US', 'France', 'Germany'],
+            categories: ['Premium', 'Gold', 'Silver']
+        }
+        const [location1, , location2] = gym.location;//first and 3rd
+        console.log(location1, location2);
+
+        //object destructuring
+        const { name } = gym;
+        console.log(name);
+        const { name: gymName } = gym;//alias to name
+        console.log(gymName);
+
+        //object destructuring when variable is already defined
+        let x = 5, y = 10;
+        const object = { x: 22, y: 40 };
+        ({ x, y } = object);
+        console.log(x, y);
+
     </script>
 </body>
 
