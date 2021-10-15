@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //Set
+        const arr = [1, 2, 3, 4, 5, 1, 2];
+        const num = new Set(arr);
+        console.log(num);
+        console.log(num.size);
+        console.log(num.has(4));
+        num.add(6);
+        console.log(num);
+        num.delete(5);
+        console.log(num);
+
+        //Map 
+        const newMap = new Map();
+        newMap.set('key1', 'val1');
+        newMap.set('key2', 'val2');
+        newMap.set('key1', 'val3');//key is unique
+        console.log(newMap);
+        newMap.set('key3', ['grv', 'sgh']).set('key4', 4);
+        console.log(newMap);
+        newMap.delete('key1');
+        console.log(newMap);
+    </script>
+</body>
+
+</html>
