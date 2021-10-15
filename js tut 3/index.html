@@ -76,6 +76,42 @@
         ({ x, y } = object);
         console.log(x, y);
 
+        //spread operator
+        const arr1 = [1, 2, 3];
+        const arr2 = [...arr1, 4, 5];
+        console.log(arr2);
+
+        const str = 'grv';
+        const arr3 = [...str, 's', 'g', 'h'];
+        console.log(arr3);//['g', 'r', 'v', 's', 'g', 'h']
+
+        //spread operator with function
+        function printFullName(fn, ln) {
+            console.log('Full name: ' + fn + ' ' + ln);
+        }
+        const name2 = ['grv', 'sgh'];
+        printFullName(...name2);
+
+        //rest pattern on right side
+        const arr4 = [1, 2, 3, 4, 5, ...[9, 10]];
+        //rest pattern on left side
+        const [a1, a2, ...arrRest] = arr4;
+        console.log(arrRest);
+
+        const fun1 = (...letters) => {
+            console.log(letters);
+        }
+        fun1('a', 'b');
+        fun1('a', 'b', 'c');
+
+        const add = (...numbers) => {
+            let sum = 0;
+            numbers.forEach((n) => {
+                sum += n;
+            })
+            console.log(sum);
+        }
+        add(2, 4);
     </script>
 </body>
 
